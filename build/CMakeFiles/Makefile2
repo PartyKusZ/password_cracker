@@ -74,12 +74,12 @@ clean: CMakeFiles/passwords_cracker.dir/clean
 CMakeFiles/passwords_cracker.dir/all:
 	$(MAKE) -f CMakeFiles/passwords_cracker.dir/build.make CMakeFiles/passwords_cracker.dir/depend
 	$(MAKE) -f CMakeFiles/passwords_cracker.dir/build.make CMakeFiles/passwords_cracker.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kubus/Pulpit/password_cracker/build/CMakeFiles --progress-num=1,2,3,4 "Built target passwords_cracker"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kubus/Pulpit/password_cracker/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target passwords_cracker"
 .PHONY : CMakeFiles/passwords_cracker.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/passwords_cracker.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kubus/Pulpit/password_cracker/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kubus/Pulpit/password_cracker/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/passwords_cracker.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kubus/Pulpit/password_cracker/build/CMakeFiles 0
 .PHONY : CMakeFiles/passwords_cracker.dir/rule

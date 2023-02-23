@@ -204,6 +204,33 @@ src/md5.cpp.s:
 	$(MAKE) -f CMakeFiles/passwords_cracker.dir/build.make CMakeFiles/passwords_cracker.dir/src/md5.cpp.s
 .PHONY : src/md5.cpp.s
 
+src/passwords_crackers.o: src/passwords_crackers.cpp.o
+
+.PHONY : src/passwords_crackers.o
+
+# target to build an object file
+src/passwords_crackers.cpp.o:
+	$(MAKE) -f CMakeFiles/passwords_cracker.dir/build.make CMakeFiles/passwords_cracker.dir/src/passwords_crackers.cpp.o
+.PHONY : src/passwords_crackers.cpp.o
+
+src/passwords_crackers.i: src/passwords_crackers.cpp.i
+
+.PHONY : src/passwords_crackers.i
+
+# target to preprocess a source file
+src/passwords_crackers.cpp.i:
+	$(MAKE) -f CMakeFiles/passwords_cracker.dir/build.make CMakeFiles/passwords_cracker.dir/src/passwords_crackers.cpp.i
+.PHONY : src/passwords_crackers.cpp.i
+
+src/passwords_crackers.s: src/passwords_crackers.cpp.s
+
+.PHONY : src/passwords_crackers.s
+
+# target to generate assembly for a file
+src/passwords_crackers.cpp.s:
+	$(MAKE) -f CMakeFiles/passwords_cracker.dir/build.make CMakeFiles/passwords_cracker.dir/src/passwords_crackers.cpp.s
+.PHONY : src/passwords_crackers.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -222,6 +249,9 @@ help:
 	@echo "... src/md5.o"
 	@echo "... src/md5.i"
 	@echo "... src/md5.s"
+	@echo "... src/passwords_crackers.o"
+	@echo "... src/passwords_crackers.i"
+	@echo "... src/passwords_crackers.s"
 .PHONY : help
 
 
