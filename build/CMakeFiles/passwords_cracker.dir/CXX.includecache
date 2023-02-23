@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../inc/data.hpp
+iostream
+-
+fstream
+-
+string
+-
+vector
+-
+
+/home/kubus/Pulpit/password_cracker/src/data.cpp
+data.hpp
+/home/kubus/Pulpit/password_cracker/src/data.hpp
+
+/home/kubus/Pulpit/password_cracker/src/main.cpp
+data.hpp
+/home/kubus/Pulpit/password_cracker/src/data.hpp
+

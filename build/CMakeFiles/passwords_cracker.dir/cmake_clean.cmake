@@ -1,0 +1,11 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/passwords_cracker.dir/src/data.cpp.o"
+  "CMakeFiles/passwords_cracker.dir/src/main.cpp.o"
+  "passwords_cracker"
+  "passwords_cracker.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/passwords_cracker.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
