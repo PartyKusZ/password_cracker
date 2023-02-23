@@ -177,6 +177,33 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/passwords_cracker.dir/build.make CMakeFiles/passwords_cracker.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/md5.o: src/md5.cpp.o
+
+.PHONY : src/md5.o
+
+# target to build an object file
+src/md5.cpp.o:
+	$(MAKE) -f CMakeFiles/passwords_cracker.dir/build.make CMakeFiles/passwords_cracker.dir/src/md5.cpp.o
+.PHONY : src/md5.cpp.o
+
+src/md5.i: src/md5.cpp.i
+
+.PHONY : src/md5.i
+
+# target to preprocess a source file
+src/md5.cpp.i:
+	$(MAKE) -f CMakeFiles/passwords_cracker.dir/build.make CMakeFiles/passwords_cracker.dir/src/md5.cpp.i
+.PHONY : src/md5.cpp.i
+
+src/md5.s: src/md5.cpp.s
+
+.PHONY : src/md5.s
+
+# target to generate assembly for a file
+src/md5.cpp.s:
+	$(MAKE) -f CMakeFiles/passwords_cracker.dir/build.make CMakeFiles/passwords_cracker.dir/src/md5.cpp.s
+.PHONY : src/md5.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +219,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/md5.o"
+	@echo "... src/md5.i"
+	@echo "... src/md5.s"
 .PHONY : help
 
 

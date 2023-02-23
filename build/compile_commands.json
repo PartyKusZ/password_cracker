@@ -8,5 +8,10 @@
   "directory": "/home/kubus/Pulpit/password_cracker/build",
   "command": "/usr/bin/g++   -I/home/kubus/Pulpit/password_cracker/inc  -g   -o CMakeFiles/passwords_cracker.dir/src/main.cpp.o -c /home/kubus/Pulpit/password_cracker/src/main.cpp",
   "file": "/home/kubus/Pulpit/password_cracker/src/main.cpp"
+},
+{
+  "directory": "/home/kubus/Pulpit/password_cracker/build",
+  "command": "/usr/bin/g++   -I/home/kubus/Pulpit/password_cracker/inc  -g   -o CMakeFiles/passwords_cracker.dir/src/md5.cpp.o -c /home/kubus/Pulpit/password_cracker/src/md5.cpp",
+  "file": "/home/kubus/Pulpit/password_cracker/src/md5.cpp"
 }
 ]
