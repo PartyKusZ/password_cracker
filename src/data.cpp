@@ -35,8 +35,8 @@ data_t::data_t(const std::string &_dictionary_file_name, const std::string &_has
     if(hashed_passwords_file.is_open()){
         while(std::getline(hashed_passwords_file, tmp_line)){
             auto splited_line = this->split(tmp_line," ");
-            this->hashed_passwords.push_back(splited_line[1]);
-            this->emails.push_back(splited_line[2]);
+            this->hashed_passwords.push_back({splited_line[1]});
+            this->emails.push_back({splited_line[2]});
         }
     }else{
         std::cerr << "Cannot open hashed passwords file" << std :: endl;

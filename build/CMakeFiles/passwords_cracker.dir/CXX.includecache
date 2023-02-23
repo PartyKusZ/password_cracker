@@ -16,11 +16,23 @@ string
 vector
 -
 
-/home/kubus/Pulpit/password_cracker/src/data.cpp
-data.hpp
-/home/kubus/Pulpit/password_cracker/src/data.hpp
+../inc/passwords_crackers.hpp
+iostream
+-
+vector
+-
+string
+-
+cmath
+-
 
 /home/kubus/Pulpit/password_cracker/src/main.cpp
 data.hpp
 /home/kubus/Pulpit/password_cracker/src/data.hpp
+passwords_crackers.hpp
+/home/kubus/Pulpit/password_cracker/src/passwords_crackers.hpp
+
+/home/kubus/Pulpit/password_cracker/src/passwords_crackers.cpp
+passwords_crackers.hpp
+/home/kubus/Pulpit/password_cracker/src/passwords_crackers.hpp
 
