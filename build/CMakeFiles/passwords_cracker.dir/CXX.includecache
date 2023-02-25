@@ -16,6 +16,12 @@ string
 vector
 -
 
+../inc/md5.hpp
+cstring
+-
+iostream
+-
+
 ../inc/passwords_crackers.hpp
 iostream
 -
@@ -25,12 +31,10 @@ string
 -
 cmath
 -
-
-/home/kubus/Pulpit/password_cracker/src/main.cpp
+md5.hpp
+../inc/md5.hpp
 data.hpp
-/home/kubus/Pulpit/password_cracker/src/data.hpp
-passwords_crackers.hpp
-/home/kubus/Pulpit/password_cracker/src/passwords_crackers.hpp
+../inc/data.hpp
 
 /home/kubus/Pulpit/password_cracker/src/passwords_crackers.cpp
 passwords_crackers.hpp
