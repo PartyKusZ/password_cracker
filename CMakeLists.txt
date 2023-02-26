@@ -4,7 +4,5 @@ include_directories(inc)
 file(GLOB SRC src/*.cpp)
 add_executable(${CMAKE_PROJECT_NAME} ${SRC})
 target_link_libraries(${CMAKE_PROJECT_NAME} pthread)
-target_link_libraries(${CMAKE_PROJECT_NAME} ssl)
-target_link_libraries(${CMAKE_PROJECT_NAME} crypto)
-target_link_libraries(${CMAKE_PROJECT_NAME} m)
+
 

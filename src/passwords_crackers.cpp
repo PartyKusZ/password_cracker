@@ -2,6 +2,13 @@
 
 const std::string special_characters = "~`!@#$%^&*()_+-={}\\|; :'\",<.>/?"; // 
 
+std::string password;
+std::string user;
+
+std::mutex mutex;
+std:: condition_variable condvar;
+bool ready = false;
+
 namespace password_cracker{ 
 
     void strings_to_attacht_t::init_numbers(){
@@ -55,18 +62,11 @@ namespace password_cracker{
     }
 
 
-    bool is_cracked(const std::string &hash_passwd, const std::string &to_check){
-        std::string hash_to_check = md5(to_check);
-        if(hash_passwd == hash_to_check)
-            return true;
-        else
-            return false;
-    }
 
     void simple_check(data_t  &data,const int &start, const int &stop){
         for(int i = start; i < stop; ++i){
             for(int j = 0; j < data.dictionary.size() && !data.hashed_passwords[i].is_cracked; ++j){
-                data.hashed_passwords[i].is_cracked = is_cracked(data.hashed_passwords[i].passwd,data.dictionary[j]);
+                 is_cracked(data.hashed_passwords[i].passwd,data.dictionary[j],data.emails[i], data.hashed_passwords[i].is_cracked);
             }
         }
     }
@@ -77,8 +77,8 @@ namespace password_cracker{
             for(int j = 0; j < data.dictionary.size() && !data.hashed_passwords[i].is_cracked; ++j){
                 for(int k = 0; k < numbers.size() && !data.hashed_passwords[i].is_cracked; ++k){
                     tmp = numbers[k] + data.dictionary[j];
-                    std::cout << tmp << std::endl;
-                    data.hashed_passwords[i].is_cracked = is_cracked(data.hashed_passwords[i].passwd, tmp);
+                    //std::cout << tmp << std::endl;
+                    is_cracked(data.hashed_passwords[i].passwd, tmp,data.emails[i], data.hashed_passwords[i].is_cracked);
 
                 }
             }
@@ -90,9 +90,9 @@ namespace password_cracker{
             for(int j = 0; j < data.dictionary.size() && !data.hashed_passwords[i].is_cracked; ++j){
                 for(int k = 0; k < numbers.size() && !data.hashed_passwords[i].is_cracked; ++k){
                     tmp = data.dictionary[j] + numbers[k];
-                    std::cout << tmp << std::endl;
+                    //std::cout << tmp << std::endl;
 
-                    data.hashed_passwords[i].is_cracked = is_cracked(data.hashed_passwords[i].passwd,tmp);
+                    is_cracked(data.hashed_passwords[i].passwd,tmp,data.emails[i], data.hashed_passwords[i].is_cracked);
 
                 }
             }
@@ -105,9 +105,9 @@ namespace password_cracker{
             for(int j = 0; j < data.dictionary.size() && !data.hashed_passwords[i].is_cracked; ++j){
                 for(int k = 0; k < specials.size() && !data.hashed_passwords[i].is_cracked; ++k){
                     tmp = specials[k] + data.dictionary[j];
-                    std::cout << tmp << std::endl;
+                   // std::cout << tmp << std::endl;
 
-                    data.hashed_passwords[i].is_cracked = is_cracked(data.hashed_passwords[i].passwd,tmp);
+                    is_cracked(data.hashed_passwords[i].passwd,tmp,data.emails[i], data.hashed_passwords[i].is_cracked);
                 }
             }
         }
@@ -118,9 +118,9 @@ namespace password_cracker{
             for(int j = 0; j < data.dictionary.size() && !data.hashed_passwords[i].is_cracked; ++j){
                 for(int k = 0; k < specials.size() && !data.hashed_passwords[i].is_cracked; ++k){
                     tmp = data.dictionary[j] + specials[k];
-                    std::cout << tmp << std::endl;
+                   // std::cout << tmp << std::endl;
 
-                    data.hashed_passwords[i].is_cracked = is_cracked(data.hashed_passwords[i].passwd,tmp);
+                    is_cracked(data.hashed_passwords[i].passwd,tmp,data.emails[i], data.hashed_passwords[i].is_cracked);
                 }
             }
         }
@@ -131,7 +131,7 @@ namespace password_cracker{
         for(int i = start; i < stop; ++i){
             for(int j = 0; j < data.dictionary.size() && !data.hashed_passwords[i].is_cracked; ++j){
                 tmp = data.dictionary[j];
-                for(int k = 1; k < (1 << data.dictionary[j].length()); ++k){
+                for(int k = 1; k < (1 << data.dictionary[j].length()) && !data.hashed_passwords[i].is_cracked; ++k){
                     for(int l = 0; l < data.dictionary[j].length(); ++l){
                         if(k & (1 << l))
                             tmp[l] = std::toupper(tmp[l]);
@@ -139,12 +139,43 @@ namespace password_cracker{
                             tmp[l] = std::tolower(tmp[l]);
  
                     }
-                std::cout << tmp << std::endl;
+//                std::cout << tmp << std::endl;
 
-                data.hashed_passwords[i].is_cracked = is_cracked(data.hashed_passwords[i].passwd,tmp);
+                is_cracked(data.hashed_passwords[i].passwd,tmp,data.emails[i],data.hashed_passwords[i].is_cracked);
                 }
             }
         }
+    }
+
+
+
+
+
+    void is_cracked(const std::string &hash_passwd, const std::string &to_check,std::string user_,bool &is_cracked){
+        std::string hash_to_check = md5(to_check);
+        std::lock_guard<std::mutex> lock(mutex);
+        if(hash_passwd == hash_to_check){
+            is_cracked = true;
+            ready = true;
+            password = to_check;
+            user = user_;
+            condvar.notify_one();
+        }
+        
+
 
     }
+
+    void show_cracker_passwords(const data_t &data){
+        std::unique_lock<std::mutex> lock(mutex);
+
+        while(true){
+            if(!ready)
+                condvar.wait(lock);
+            std::cout << "User's password " << user << " is " << password << std :: endl;
+            ready = false;
+        }
+        lock.unlock();
+    }
+    
 }

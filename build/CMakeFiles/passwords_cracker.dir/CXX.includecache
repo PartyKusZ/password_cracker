@@ -29,14 +29,22 @@ vector
 -
 string
 -
-cmath
+mutex
+-
+thread
+-
+condition_variable
 -
 md5.hpp
 ../inc/md5.hpp
 data.hpp
 ../inc/data.hpp
 
-/home/kubus/Pulpit/password_cracker/src/passwords_crackers.cpp
+/home/kubus/Pulpit/password_cracker/src/main.cpp
+data.hpp
+/home/kubus/Pulpit/password_cracker/src/data.hpp
 passwords_crackers.hpp
 /home/kubus/Pulpit/password_cracker/src/passwords_crackers.hpp
+thread
+-
 
